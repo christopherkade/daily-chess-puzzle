@@ -1,0 +1,32 @@
+{
+  "game": {
+    "id": "wMRmKPUX",
+    "perf": {
+      "icon": "",
+      "name": "Classical"
+    },
+    "rated": true,
+    "players": [
+      {
+        "userId": "shiyy3",
+        "name": "shiyy3 (1673)",
+        "color": "white"
+      },
+      {
+        "userId": "chessguy9333",
+        "name": "chessguy9333 (1818)",
+        "color": "black"
+      }
+    ],
+    "pgn": "d4 e5 e3 exd4 Qxd4 Nc6 Qe4+ Be7 c3 Nf6 Qf3 d5 Nd2 Bg4 Qg3 Bd6 f4 O-O h3 Bh5 Be2 Bg6 Ngf3 Ne4 Nxe4 dxe4 Ne5 Nxe5 fxe5 Be7 O-O Bh4 Qg4 h5 Qf4 Bg5 Qh2 Qe7 g4 h4 a4 Rfe8 b3 Qc5 Bc4 Bxe3+ Bxe3 Qxe3+ Qf2 Qxh3 Bxf7+ Bxf7 Qxf7+ Kh7 Qf5+ Kg8 Qxe4 Qg3+ Qg2 Qxc3 Qd5+ Kh8 Rac1 Qxe5",
+    "clock": "15+15"
+  },
+  "puzzle": {
+    "id": "ukiNw",
+    "rating": 1739,
+    "plays": 34125,
+    "initialPly": 63,
+    "solution": ["f1f8", "h8h7", "d5e5", "e8e5", "f8a8"],
+    "themes": ["endgame", "crushing", "intermezzo", "long"]
+  }
+}

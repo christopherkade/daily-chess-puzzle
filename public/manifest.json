@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DCP",
+  "name": "Daily Chess Puzzle",
   "icons": [
     {
       "src": "favicon.ico",
