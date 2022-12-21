@@ -5,9 +5,10 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 200px;
+  width: fit-content;
   height: fit-content;
   padding: 16px;
-  background-color: white;
+  background-color: var(--light);
   z-index: 200;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

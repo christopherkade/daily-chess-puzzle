@@ -2,6 +2,12 @@
   --primary: #cb997e;
   --secondary: #6b705c;
   --text: #ffe8d6;
+
+  --dark: #463f3a;
+  --light: #f4f3ee;
+  --grey: #8a817c;
+  --light-grey: #bcb8b1;
+  --pink: #e0afa0;
 }
 
 body {
@@ -12,7 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: var(--primary);
+  background-color: var(--dark);
 
   overflow: hidden;
 }

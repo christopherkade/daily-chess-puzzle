@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .wrapper {
+    height: auto;
+    flex-direction: column;
+  }
+}

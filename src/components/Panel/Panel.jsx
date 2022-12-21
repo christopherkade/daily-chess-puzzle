@@ -68,24 +68,48 @@ const Panel = ({ puzzle, gameData, currentMoveIndex }) => {
   };
 
   return (
-    <div className="panel" ref={panelRef}>
-      <h1 className="title">Puzzle {puzzle.id}</h1>
+    <>
+      <aside className="panel" ref={panelRef}>
+        <div className="players-wrapper">
+          <span className="players-label">Played by:</span>
+          {gameData.players.map((player, index) => (
+            <div>
+              <span className="player-name">{player.name}</span>
+            </div>
+          ))}
+        </div>
 
-      <div className="players-wrapper">
-        {gameData.players.map((player, index) => (
-          <>
-            <span className="player-name">{player.name}</span>
-            {index === 0 && <span className="vs"> v </span>}
-          </>
-        ))}
-      </div>
+        <div className="stats-wrapper">
+          Total players: <span>{puzzle.plays}</span>
+        </div>
 
-      <div className="hint-wrapper">
-        <button className="hint-button" onClick={handleHint} ref={buttonRef}>
-          Get hint (remaining: {hintsRemaining})
-        </button>
+        <div className="hint-wrapper">
+          <button className="hint-button" onClick={handleHint} ref={buttonRef}>
+            Get hint (remaining: {hintsRemaining})
+          </button>
+        </div>
+      </aside>
+      <div className="mobile-panel">
+        <div className="players-wrapper">
+          <span className="players-label">Played by:</span>
+          {gameData.players.map((player, index) => (
+            <div>
+              <span className="player-name">{player.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="stats-wrapper">
+          Total players: <span>{puzzle.plays}</span>
+        </div>
+
+        <div className="hint-wrapper">
+          <button className="hint-button" onClick={handleHint} ref={buttonRef}>
+            Get hint (remaining: {hintsRemaining})
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

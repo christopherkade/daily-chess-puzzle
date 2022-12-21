@@ -36,6 +36,19 @@ const Board = ({
     return result;
   }
 
+  function onDrop(sourceSquare, targetSquare) {
+    const move = makeAMove({
+      from: sourceSquare,
+      to: targetSquare,
+      promotion: "q", // always promote to a queen for example simplicity
+    });
+
+    // illegal move
+    if (move === null) return false;
+
+    return true;
+  }
+
   // Triggered each time a move is made
   // And automatically executes the next correct move if it's the bot's turn
   useEffect(() => {
@@ -51,27 +64,12 @@ const Board = ({
     });
   }, [currentMoveIndex]);
 
-  function onDrop(sourceSquare, targetSquare) {
-    const move = makeAMove({
-      from: sourceSquare,
-      to: targetSquare,
-      promotion: "q", // always promote to a queen for example simplicity
-    });
-
-    // illegal move
-    if (move === null) return false;
-
-    return true;
-  }
-
   return (
-    <div className="container">
-      <Chessboard
-        id="basic-board"
-        position={gameState.fen()}
-        onPieceDrop={onDrop}
-      />
-    </div>
+    <Chessboard
+      id="basic-board"
+      position={gameState.fen()}
+      onPieceDrop={onDrop}
+    />
   );
 };
 

@@ -1,7 +1,7 @@
 .panel {
   width: fit-content;
   height: fit-content;
-  background-color: white;
+  background-color: var(--light);
   padding: 16px 55px;
   position: absolute;
   top: 0;
@@ -10,13 +10,33 @@
   bottom: 0;
   margin-left: auto;
   z-index: 100;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.mobile-panel {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .panel {
+    display: none;
+  }
+
+  .mobile-panel {
+    display: inline-block;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--light);
+    padding: 16px 55px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 }
 
 .panel::before {
   content: "Hints";
   position: absolute;
   left: 0;
-  bottom: 55px;
+  bottom: 70px;
   transform: rotate(90deg);
 }
 
@@ -32,28 +52,37 @@
 .hint-wrapper {
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .hint-button {
+  font-size: 1.1rem;
   background-color: transparent;
   padding: 4px;
   margin-right: 4px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 .hint-button:hover {
   cursor: pointer;
+  opacity: 0.5;
 }
 
-/* .wrapper {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  background-color: white;
-  padding: 16px 55px;
+.players-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
-.hover-label {
-  transform: rotate(90deg);
-  position: absolute;
-} */
+.players-label {
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+.stats-wrapper {
+  margin-top: 8px;
+}
+
+.stats-wrapper > span {
+  font-weight: bold;
+}

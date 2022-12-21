@@ -5,6 +5,8 @@ import { Board } from "./components/Board";
 import { Panel } from "./components/Panel";
 import { VictoryPanel } from "./components/VictoryPanel";
 
+import "./App.css";
+
 function App() {
   const [hasWon, setHasWon] = useState(false);
   const [currentMoveIndex, setCurrentMoveIndex] = useState(0);
@@ -41,14 +43,7 @@ function App() {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-      }}
-    >
+    <div className="wrapper">
       <Board
         puzzle={puzzle}
         gameState={gameState}
