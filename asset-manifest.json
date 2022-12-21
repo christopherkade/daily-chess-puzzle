@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/daily-chess-puzzle/static/css/main.44df1075.css",
-    "main.js": "/daily-chess-puzzle/static/js/main.ac00e88a.js",
-    "static/js/787.90c9f2ed.chunk.js": "/daily-chess-puzzle/static/js/787.90c9f2ed.chunk.js",
-    "index.html": "/daily-chess-puzzle/index.html",
-    "main.44df1075.css.map": "/daily-chess-puzzle/static/css/main.44df1075.css.map",
-    "main.ac00e88a.js.map": "/daily-chess-puzzle/static/js/main.ac00e88a.js.map",
-    "787.90c9f2ed.chunk.js.map": "/daily-chess-puzzle/static/js/787.90c9f2ed.chunk.js.map"
+    "main.css": "/static/css/main.44df1075.css",
+    "main.js": "/static/js/main.0b58346b.js",
+    "static/js/787.90c9f2ed.chunk.js": "/static/js/787.90c9f2ed.chunk.js",
+    "index.html": "/index.html",
+    "main.44df1075.css.map": "/static/css/main.44df1075.css.map",
+    "main.0b58346b.js.map": "/static/js/main.0b58346b.js.map",
+    "787.90c9f2ed.chunk.js.map": "/static/js/787.90c9f2ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.44df1075.css",
-    "static/js/main.ac00e88a.js"
+    "static/js/main.0b58346b.js"
   ]
 }
