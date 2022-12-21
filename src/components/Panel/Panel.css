@@ -1,0 +1,59 @@
+.panel {
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  padding: 16px 55px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-left: auto;
+  z-index: 100;
+}
+
+.panel::before {
+  content: "Hints";
+  position: absolute;
+  left: 0;
+  bottom: 55px;
+  transform: rotate(90deg);
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0 0 8px 0;
+}
+
+.vs {
+  font-weight: bold;
+}
+
+.hint-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.hint-button {
+  background-color: transparent;
+  padding: 4px;
+  margin-right: 4px;
+}
+
+.hint-button:hover {
+  cursor: pointer;
+}
+
+/* .wrapper {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  padding: 16px 55px;
+}
+
+.hover-label {
+  transform: rotate(90deg);
+  position: absolute;
+} */
