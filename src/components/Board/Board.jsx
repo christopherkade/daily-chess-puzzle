@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Chessboard } from "react-chessboard";
 import "./Board.css";
 
+import highlightSquare from "../../services/highlightSquare";
+
 // TODO: Highlight element when the user does an illegal / incorrect move
 // TODO: Define a victory screen
 // TODO: Save high scores in local storage
@@ -19,7 +21,7 @@ const Board = ({
     const gameCopy = Object.create(gameState);
 
     // If the move is not the solution, stop.
-    if (move.to !== currentMoveSolution.slice(2)) return;
+    if (move.to !== currentMoveSolution.slice(2)) return null;
 
     // Apply the move in the game state
     const result = gameCopy.move(move);
@@ -44,7 +46,10 @@ const Board = ({
     });
 
     // illegal move
-    if (move === null) return false;
+    if (move === null) {
+      highlightSquare(sourceSquare, "red");
+      return false;
+    }
 
     return true;
   }

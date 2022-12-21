@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Panel.css";
 
+import highlightSquare from "../../services/highlightSquare";
+
 // TODO: Handle mobile
 const PANEL_OFFSET = 50;
 
@@ -34,36 +36,13 @@ const Panel = ({ puzzle, gameData, currentMoveIndex }) => {
   }, [panelRef]);
 
   const handleHint = () => {
-    let i = 0;
-    let originalNodeColor;
-
-    const nextMove = puzzle.solution[currentMoveIndex].slice(0, 2);
-    const moveNode = document.querySelector(`[data-square="${nextMove}"]`);
-
-    const intervalId = setInterval(() => {
-      if (moveNode.style.backgroundColor === "red") {
-        moveNode.style.backgroundColor = originalNodeColor;
-      } else {
-        originalNodeColor = moveNode.style.backgroundColor;
-        moveNode.style.backgroundColor = "red";
-      }
-
-      shouldClearInterval();
-      i++;
-    }, 200);
-
-    const shouldClearInterval = () => {
-      if (i === 3) {
-        clearInterval(intervalId);
-      }
-    };
+    highlightSquare(puzzle.solution[currentMoveIndex].slice(0, 2), "green");
 
     // Lock the button
     if (hintsRemaining === 1) {
       buttonRef.current.disabled = true;
     }
 
-    console.log("865 --- Hint");
     setHintsRemaining((prevValue) => prevValue - 1);
   };
 
