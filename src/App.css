@@ -5,8 +5,17 @@
   height: 100%;
 }
 
+.disclaimer {
+  position: absolute;
+  bottom: 0;
+  color: var(--light);
+  opacity: 0.75;
+  font-size: 0.75rem;
+}
+
 @media only screen and (max-width: 1000px) {
   .wrapper {
+    display: block;
     height: auto;
     flex-direction: column;
   }

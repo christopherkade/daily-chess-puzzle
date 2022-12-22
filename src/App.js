@@ -33,8 +33,24 @@ function App() {
         });
     }
 
-    if (!puzzle) {
+    async function fetchPuzzleById(id) {
+      fetch(`https://lichess.org/api/puzzle/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          gameState.load_pgn(data.game.pgn);
+          setPuzzle(data.puzzle);
+          setGameData(data.game);
+          console.log("865 --- DATA", data);
+        });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!puzzle && !id) {
       fetchPuzzle();
+    } else if (id && !puzzle) {
+      fetchPuzzleById(id);
     }
   }, [puzzle]);
 
@@ -58,6 +74,10 @@ function App() {
         currentMoveIndex={currentMoveIndex}
       />
       {hasWon && <VictoryPanel />}
+
+      <p className="disclaimer">
+        Pawn promotion is not yet supported, thank you for your understanding
+      </p>
     </div>
   );
 }
