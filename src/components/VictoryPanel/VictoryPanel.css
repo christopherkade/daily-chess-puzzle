@@ -12,3 +12,13 @@
   z-index: 200;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.victory-panel > h1 {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+}
+
+.stats-wrapper > h2 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}

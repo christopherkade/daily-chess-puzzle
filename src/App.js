@@ -18,7 +18,6 @@ function App() {
     const date = new Date();
     const today =
       date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-    console.log("865 --- today", today);
     document.title = "Daily Chess Club - " + today;
   }, []);
 
@@ -40,7 +39,6 @@ function App() {
           gameState.load_pgn(data.game.pgn);
           setPuzzle(data.puzzle);
           setGameData(data.game);
-          console.log("865 --- DATA", data);
         });
     }
 
@@ -59,7 +57,7 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" id="main-wrapper">
       <Board
         puzzle={puzzle}
         gameState={gameState}
@@ -73,7 +71,7 @@ function App() {
         gameData={gameData}
         currentMoveIndex={currentMoveIndex}
       />
-      {hasWon && <VictoryPanel />}
+      {hasWon && <VictoryPanel puzzle={puzzle} />}
 
       <p className="disclaimer">
         Pawn promotion is not yet supported, thank you for your understanding

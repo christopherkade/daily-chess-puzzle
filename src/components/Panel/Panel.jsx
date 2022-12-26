@@ -3,17 +3,13 @@ import "./Panel.css";
 
 import highlightSquare from "../../services/highlightSquare";
 
-// TODO: Handle mobile
 const PANEL_OFFSET = 50;
+const TOTAL_HINTS = 3;
 
-// TODO: Handle mobile display for panel
 const Panel = ({ puzzle, gameData, currentMoveIndex }) => {
-  const [hintsRemaining, setHintsRemaining] = useState(3);
+  const [hintsRemaining, setHintsRemaining] = useState(TOTAL_HINTS);
   const panelRef = useRef(null);
   const buttonRef = useRef(null);
-
-  console.log("865 --- P", puzzle);
-  console.log("865 --- G", gameData);
 
   useEffect(() => {
     if (panelRef) {
@@ -42,6 +38,12 @@ const Panel = ({ puzzle, gameData, currentMoveIndex }) => {
     if (hintsRemaining === 1) {
       buttonRef.current.disabled = true;
     }
+
+    const totalHintsUsed = window.localStorage.getItem("dcc-hints-used");
+    window.localStorage.setItem(
+      "dcc-hints-used",
+      totalHintsUsed ? Number(totalHintsUsed) + 1 : 1
+    );
 
     setHintsRemaining((prevValue) => prevValue - 1);
   };

@@ -24,11 +24,11 @@
 
   .mobile-panel {
     display: inline-block;
-    width: 100%;
     height: fit-content;
     background-color: var(--light);
     padding: 16px 55px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: -webkit-fill-available;
   }
 }
 

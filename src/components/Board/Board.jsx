@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Chessboard } from "react-chessboard";
 import "./Board.css";
 
@@ -15,6 +15,33 @@ const Board = ({
   setCurrentMoveIndex,
   setHasWon,
 }) => {
+  const [chessboardSize, setChessboardSize] = useState(undefined);
+  const [totalMoves, setTotalMoves] = useState(0);
+  const boardRef = useRef();
+
+  function updateStats() {
+    const totalWinsLS = window.localStorage.getItem("dcc-wins");
+    const totalMovesLS = window.localStorage.getItem("dcc-total-moves");
+
+    if (!totalWinsLS) {
+      window.localStorage.setItem(
+        "dcc-first-win",
+        document.title.split("-")[1].trim()
+      );
+    }
+
+    window.localStorage.setItem(
+      "dcc-wins",
+      totalWinsLS ? Number(totalWinsLS) + 1 : 1
+    );
+    window.localStorage.setItem(
+      "dcc-total-moves",
+      totalMovesLS ? totalMovesLS + totalMoves : totalMoves + 1
+    );
+
+    setHasWon(true);
+  }
+
   function makeAMove(move) {
     const solutions = puzzle.solution;
     const currentMoveSolution = solutions[currentMoveIndex];
@@ -28,8 +55,7 @@ const Board = ({
     setGameState(gameCopy);
 
     if (currentMoveIndex === solutions.length - 1) {
-      setHasWon(true);
-      // VICTORY ! Define the success screen
+      updateStats();
       return;
     }
 
@@ -51,6 +77,8 @@ const Board = ({
       return false;
     }
 
+    setTotalMoves((prev) => prev + 1);
+
     return true;
   }
 
@@ -69,12 +97,29 @@ const Board = ({
     });
   }, [currentMoveIndex]);
 
+  useEffect(() => {
+    function handleResize() {
+      const board = document.querySelector("#main-wrapper");
+
+      if (board.offsetWidth > 500) return;
+
+      setChessboardSize(board.offsetWidth - 20);
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Chessboard
-      id="basic-board"
-      position={gameState.fen()}
-      onPieceDrop={onDrop}
-    />
+    <div id="basic-board">
+      <Chessboard
+        ref={boardRef}
+        position={gameState.fen()}
+        onPieceDrop={onDrop}
+        boardWidth={chessboardSize}
+      />
+    </div>
   );
 };
 
