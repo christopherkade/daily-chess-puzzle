@@ -25,7 +25,7 @@ const VictoryPanel = ({ puzzle }) => {
           Total moves: <span>{totalMoves}</span>
         </div>
         <div>
-          Total hints used: <span>{totalHints}</span>
+          Total hints used: <span>{totalHints ? totalHints : 0}</span>
         </div>
         <div>
           Total players: <span>{puzzle.plays}</span>

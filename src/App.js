@@ -53,12 +53,13 @@ function App() {
   }, [puzzle]);
 
   if (!gameState || !puzzle) {
-    return <div>Loading</div>;
+    return null;
   }
 
   return (
     <div className="wrapper" id="main-wrapper">
       <Board
+        className="board"
         puzzle={puzzle}
         gameState={gameState}
         setGameState={setGameState}

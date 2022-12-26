@@ -36,7 +36,7 @@ const Board = ({
     );
     window.localStorage.setItem(
       "dcc-total-moves",
-      totalMovesLS ? totalMovesLS + totalMoves : totalMoves + 1
+      totalMovesLS ? Number(totalMovesLS) + (totalMoves + 1) : totalMoves + 1
     );
 
     setHasWon(true);
