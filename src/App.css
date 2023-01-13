@@ -19,4 +19,8 @@
     height: auto;
     flex-direction: column;
   }
+
+  .disclaimer {
+    display: none;
+  }
 }

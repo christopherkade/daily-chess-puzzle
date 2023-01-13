@@ -2,7 +2,7 @@
   width: fit-content;
   height: fit-content;
   background-color: var(--light);
-  padding: 16px 55px;
+  padding: 12px 20px 20px 20px;
   position: absolute;
   top: 0;
   right: 0;
@@ -11,6 +11,7 @@
   margin-left: auto;
   z-index: 100;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-bottom-left-radius: 12px;
 }
 
 .mobile-panel {
@@ -23,6 +24,8 @@
   }
 
   .mobile-panel {
+    position: absolute;
+    bottom: 0;
     display: inline-block;
     height: fit-content;
     background-color: var(--light);
@@ -30,14 +33,6 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     width: -webkit-fill-available;
   }
-}
-
-.panel::before {
-  content: "Hints";
-  position: absolute;
-  left: 0;
-  bottom: 70px;
-  transform: rotate(90deg);
 }
 
 .title {
@@ -76,13 +71,12 @@
 
 .players-label {
   font-size: 1.1rem;
-  text-decoration: underline;
 }
 
 .stats-wrapper {
   margin-top: 8px;
 }
 
-.stats-wrapper > span {
+.stats-wrapper>span {
   font-weight: bold;
 }

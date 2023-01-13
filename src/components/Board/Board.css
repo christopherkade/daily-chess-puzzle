@@ -3,12 +3,20 @@
   align-items: center;
   justify-content: center;
   animation: appear 1.5s backwards;
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  #basic-board {
+    margin-top: 20px;
+  }
 }
 
 @keyframes appear {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

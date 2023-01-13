@@ -5,6 +5,8 @@ import { Board } from "./components/Board";
 import { Panel } from "./components/Panel";
 import { VictoryPanel } from "./components/VictoryPanel";
 
+import getInitialColor from "./services/getInitialColor";
+
 import "./App.css";
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
   const [puzzle, setPuzzle] = useState(null);
   const [gameData, setGameData] = useState(null);
   const [gameState, setGameState] = useState(new Chess());
+  const [initialColor, setInitialColor] = useState('white');
 
   useEffect(() => {
     const date = new Date();
@@ -29,6 +32,10 @@ function App() {
           gameState.load_pgn(data.game.pgn);
           setPuzzle(data.puzzle);
           setGameData(data.game);
+
+          const initialColor = getInitialColor(data.game.pgn)
+          console.log('initialcolor', initialColor)
+          setInitialColor(initialColor)
         });
     }
 
@@ -69,8 +76,8 @@ function App() {
       />
       <Panel
         puzzle={puzzle}
-        gameData={gameData}
         currentMoveIndex={currentMoveIndex}
+        initialColor={initialColor}
       />
       {hasWon && <VictoryPanel puzzle={puzzle} />}
 
